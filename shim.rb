@@ -10,12 +10,31 @@ class Shim < Sinatra::Base
 
       before do
         unless env['HTTP_IFTTT_CHANNEL_KEY'] == settings.IFTTT_CHANNEL_KEY
-          halt 401, { 'Content-Type': 'text/plain' }, 'Invalid IFTTT channel key!'
+          halt 401, { 'Content-Type': 'application/json;charset=utf-8' }, json( { errors: [ { message: 'Invalid IFTTT channel key!' } ] } )
         end
       end
 
       get '/status' do
         status 200
+      end
+
+      post '/test/setup' do
+        headers 'Content-Type': 'application/json;charset=utf-8'
+        status 200
+        json data: { samples: { triggers: { "new_tonight_post": {} } } }
+      end
+
+      post '/triggers/new_tonight_post' do
+        params = JSON.parse(request.body.read)
+        limit = params['limit'] || 3
+
+        headers 'Content-Type': 'application/json;charset=utf-8'
+        status 200
+
+        # post = Post.fetch
+        posts = Post.archive(limit)
+
+        json data: posts
       end
 
     end
