@@ -6,6 +6,8 @@ gem 'thin'
 
 gem 'dotenv'
 
+gem 'faraday'
+
 group :development do
   gem 'rake', '~> 10.0'
   gem 'rspec'

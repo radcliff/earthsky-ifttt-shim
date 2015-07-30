@@ -7,8 +7,11 @@ GEM
     diff-lcs (1.2.5)
     dotenv (2.0.1)
     eventmachine (1.0.7)
+    faraday (0.9.1)
+      multipart-post (>= 1.2, < 3)
     method_source (0.8.2)
     multi_json (1.11.2)
+    multipart-post (2.0.0)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -55,6 +58,7 @@ PLATFORMS
 
 DEPENDENCIES
   dotenv
+  faraday
   pry
   rack-test (~> 0.6)
   rake (~> 10.0)
