@@ -1,6 +1,9 @@
 # Load path and gems/bundler
 $LOAD_PATH << File.expand_path(File.dirname(__FILE__))
 
+require 'dotenv'
+Dotenv.load
+
 require "bundler"
 Bundler.require
 

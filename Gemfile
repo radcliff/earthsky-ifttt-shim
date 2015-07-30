@@ -4,6 +4,8 @@ gem 'sinatra', '~> 1.4'
 gem 'sinatra-contrib', require: 'sinatra/contrib'
 gem 'thin'
 
+gem 'dotenv'
+
 group :development do
   gem 'rake', '~> 10.0'
   gem 'rspec'
